@@ -1,11 +1,52 @@
 \chapter {Ideen}
-ideen
+Ideen vår sprang ut fra et ønske om å finne noe vi syntes var interessant ved Gunnerus biblioteket og prøve å formidle dette videre til besøkende ved biblioteket, med hovedfokus på ungdomsskoleelever, på en underholdende måte. Musikk var et tema som hadde gått igjen i samtalene våre selv før vi begynte med idemyldring rundt prosjektet. Ettersom vi alle sammen var interessert i musikk, og flere av medlemmene i gruppen har spillet instrument tidligere, landet vi på et prosjekt der vi ønsket å koble musikk og instrument opp mot vår spesielle kompetanse.Dette håndterte vi ved å brainstorme rundt Trondheims musikkarv, og hvordan vi kunne utnytte de bortgjemte skattene Gunnerus biblioteket hadde å by på. Vi endte opp med et pianospill hvor man skal spille notene til en valgt sang, og få poeng ut fra dette. Mens de aller fleste besøkende liker musikk og vil høre på disse gamle sangene, så er det nok kun et fåtall som har spilt piano før, vi ønsket derfor å gi de noen hjelpemidler. Vi har derfor brukt datakompetanse og grafisk design til å lage en enkel interface på touchskjerm hvor man kan velge hvilke sanger man vil spille og se hvilke noter man skal spille til hvilken tid (i samme stil som "guitarhero", et godt kjent konsoll spill), elektronikk til å lyse opp tangentene man skal spille og musikk kunnskap til å lage midi filer med forskjellige vanskelighetsgrader. Når vi tok opp ideen vår med Alexandra Angeletaki, vår kontaktperson ved Gunnerus biblioteket, var hun svært positiv.
 
 \section{Problemstilling}
-problemstillinga
+Problemstillingen var som følger:\\"Hvordan få ungdomsskoleelever interessert i Trondheims gamle musikktradisjon?"
 
 \section{Oppgavens forankring i gruppen}
-hvordan får vi brukt alles ressurser
+\subsection{Den grafiske utformingen - Aleksander}
+Aleksander har bachelor i filmvitenskap, med medievitenskap som støttefag. Selv om gruppen forsøkte å inkludere alles fagområder i prosjektet, viste det seg vanskelig å få trukket inn Aleksanders filmvitenskapelige kompetanse. Han fikk derfor ansvaret for den grafiske utformingen av programmet, siden denne oppgaven falt nærmest hans fagområde.\\\\
+
+Selv om Synthesia, programmet vi brukte kildekoden til, kom med en ferdig grafisk utforming, ønsket vi å sette vårt eget visuelle preg på vår versjon. Aleksander fikk hovedansvaret for å modifisere Synthesias bildefiler og lage et nytt design som ville passe bedre til vår prosjektidé.
+Siden formålet med “Gamle tangenter” var å belyse Trondheims musikkarv, ønsket vi at designet også skulle gjenspeile denne. Synthesias nøytrale, grå bakgrunn ble derfor erstattet med et sepia-tonet bilde av gamle noter. Alle knappene ble også omgjort til sepia-farger, mens all tekst ble oversatt til norsk med en gotisk skrifttype.
+Samtidig måtte designet appellere til ungdomsskoleelever, så det var også viktig at det ikke ble altfor gammeldags og kjedelig. Aleksander designet derfor en logo for “Gamle tangenter” som skulle være iøynefallende og til dels moderne, men som samtidig skulle passe med den øvrige gammeldagse stilen.
+For å slippe å gjøre endringer i koden ble de opprinnelige bildefilene brukt som utgangspunkt. Disse ble så modifisert i Adobe Photoshop og lagret med samme filnavn som de opprinnelige bildefilene, slik at programmererne ganske enkelt kunne kopiere de nye bildene over til programmets “graphics”- mappe og dermed implementere det nye designet uten å måtte skrive ny kode.
+
+\subsection{Digitalisering av notene - Arnstein}
+Arnstein fikk hovedansvaret for digitalisering av notene. Dette innebar å transkribere de håndskrevne notene og eksportere dem som MIDI–filer.
+I transkriberingsprosessen møtte vi på noen utfordringer. Siden notematerialet vi jobbet med var fra 1700–tallet, er musikken notert annerledes enn den ville vært i dag. Blant annet inneholder musikken en rekke symboler for ornamentasjon som ikke lengre er i bruk. Flere av de symbolene som fortsatt er i daglig bruk har også endret sin betydning. \\\\
+
+Dette er en takt hentet fra en arie av Johan Daniel Berlin. Det øverste systemet viser hvordan musikken er notert i manuskriptet, mens det nederste viser min transkripsjon. Selv om tolkningen er basert på Berlins egen forklaring av sin notasjon, vil en utøver spille det øverste systemet annerledes enn det nederste. Dette skyldes at trillene normalt ikke er bundet til rytmen på samme måten som de absolutte noteverdiene i systemet under. Transkripsjonen er allikevel nødvendig for at den digitale avspillingen av musikken skal gi en best mulig gjengivelse av komponistens intensjoner. I og med at såpass mye av musikken er notert på denne måten vil transkripsjonen allikevel gjøre at utøveren mister mye av friheten til å utforme de ekspressive sidene ved musikken.\\\\
+
+En annen utfordring var at manuskriptene synes å bestå av musikk av svært ulik kvalitet. Mye av materialet virker mer som kladder enn ferdige komposisjoner. Det er derfor ofte vanskelig å tyde håndskriften i manuskriptene. I et par tilfeller var det vanskelig å avgjøre hvilken tone som er notert. I slike tilfeller valgte jeg det jeg oppfattet som "mest musikalsk". I andre tilfeller tvilte jeg på at de nedtegnede notene faktisk var komponistens intensjon. Dette kunne være fordi de skapte overraskende dissonanser eller fordi notene skapte overraskende variasjoner av tidligere fraser. I disse tilfellene valgte jeg allikevel å beholde musikken slik den var notert. En siste utfordring var at notematerialet i enkelte tilfeller rett og slett ikke gav mening. Et godt eksempel på dette er følgende takt fra hans Arie:  
+I dette eksempelet stemmer rett og slett noteverdiene i øverste system med noteverdiene i nederste system. I øverste system mangler tre sekstifiredeler av takten. I dette eksempelet valgte jeg å legge til disse i ornamentasjonen midt i takten.  
+
+\subsection{Implementering av GUI - Kent}
+Kent Robin fikk hovedansvart for å implementere de grafiske endringene som Aleksander gjorde. Selve hovedoppsettet i programmet ble ikke så mye endret, da det var tidsbegrensninger på prosjektet, slik at det var først og fremst det som var essensielt å endre og minst tidkrevende som ble prioritert i første omgang.
+\\\\
+Ettersom det ble brukt et “open source”-program, kalt Synthesia, hvor koden var totalt ukjent og veldig lite dokumentert, tok det overraskende mye tid å finne ut av hvordan man endret de forskjellige grafiske elementene, og hvordan man la til nye. Når det i tillegg var skrevet i et programmeringsspråk som gruppen hadde lite eller ingen kjennskap til, gjør det at mye av tiden blir brukt på å sette seg inn i og lære seg hvordan det hele fungerer. 
+\\\\
+Når koden og programmeringsspråket hadde blitt litt mer kjent, ble det lettere å navigere seg rundt i koden til prosjektet og skjønne hva som foregikk. De grafiske endringene som ble gjort, krevde ikke mye kode, men igjen med grafikk, er det små ting som spiller en stor rolle. Eksempelvis plassering, oppløsning på bakgrunnsbilder i forhold til skjermen det skal kjøres på osv. 
+
+Så utfordringen i dette tilfellet var ikke å endre det grafiske grensesnittet, det var å bli kjent med kildekoden og skjønne hvor og hvordan ting ble gjort. 
+
+\subsection{Midi I/O - Thomas}
+Thomas, med sin spesialisering innenfor intelligente systemer, datateknikk, hadde programmert litt i C++ før, så han fikk hovedansvaret for å sende midi signaler til mikrokontrolleren som Vegard laget. Han var også ansvarlig for at programmet fungerte i sin helhet til enhver tid, og at bugs ble rettet opp i.\\\\
+Her gikk mye tid i starten av prosjektet ut på å sette seg inn i "open source"-programmet vi hadde funnet, som var veldig dårlig dokumentert, samt å sette seg inn i midi programmering, som var helt nytt for Thomas.\\\\
+Da den initielle researchen var gjort, gikk oppgavene ut på å lage knapper for å velge utenhet for midi signalene, og hvordan man skulle velge enhetene.
+Når vi så kom til hvordan timingen på når LED lysene til Vegard skulle tennes var det flere alternativ:\\
+\begin{itemize}
+\item 
+skal de sendes 0,5 sekund før man skal trykke på knappen slik at personen som spiller kan klare seg ved å kun se på lysene?
+\item
+skal de sendes akkurat når notene blir spilt, slik at man ser en sammenheng mellom notene som ruller nedover skjermen og lysene som tennes på pianoet ?
+\item
+skal lysene tennes på begge hender, eller blir dette for forvirrende ?
+\end{itemize}
+Vi endte til slutt opp med å sende midi signalene slik at lysene tennes akkurat når notene blir spilt, dette fordi det var minst forvirrende. Det føltes som dette ville hjelpe nye spillere best, som var intensjonen bak lys implementeringen.\\\\
+Prosessen krevet mye sammenkjøring med Vegard. Det var vanskelig å få testet hvordan midi signalene Thomas sendte ut ville fungere på mikrokontrolleren, uten at denne var ferdig. Dette førte til at når mikrokontrolleren først var ferdig, som var svært sent i prosjektdelen, og testing fasen endelig kunne starte, var det mye bugs og endringer som måtte gjøres på kort tid.\\\\
+Det var en interessant tverrfaglig utfordring.
 
 \section{Arbeidsmetoder}
 hvordan har vi jobbet?
