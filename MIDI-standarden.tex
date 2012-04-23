@@ -1,0 +1,5 @@
+MIDI er et kommunikasjonsgrensesnitt for elektronisk overføring av notedata og kontrollparametere i real-time. MIDI står for Musical Instrument Digital Interface\cite{midi}, og er en vel etablert standard som har vært i stadig utvikling siden 80-tallet. En MIDI-enhet kan for eksempel være et keyboard.
+
+Vi valgte tidlig å bruke MIDI som kommunikasjonsgrensesnitt mellom PC og tangentlysene. Synthesia baserer seg allerede på MIDI data for å spille av noter, og det er relativt enkelt å lese av MIDI med en mikrokontroller eller PC. Både til PC og mikrokontrollere finner man flere eksempler og rammeverk rundt MIDI.
+
+Tidligere var det vanlig at MIDI-signaler ble sendt over en egen type kabel. Nå er det vanlig å implementere grensesnittet over USB. MIDI-signalet er en seriell datastrøm med gitte parametre for hastighet og ordlengde. Overføringsmetoden som benytter en egen kabel kan via en elektrisk krets leses av med protokollen UART, Universal Asynchronous Receiver/Transmitter.

@@ -48,5 +48,31 @@ Vi endte til slutt opp med å sende midi signalene slik at lysene tennes akkurat
 Prosessen krevet mye sammenkjøring med Vegard. Det var vanskelig å få testet hvordan midi signalene Thomas sendte ut ville fungere på mikrokontrolleren, uten at denne var ferdig. Dette førte til at når mikrokontrolleren først var ferdig, som var svært sent i prosjektdelen, og testing fasen endelig kunne starte, var det mye bugs og endringer som måtte gjøres på kort tid.\\\\
 Det var en interessant tverrfaglig utfordring.
 
+\subsection{Tangentlys - Vegard}
+Hjelpelysene til tangentene tennes av en mikrokontroller som leser av MIDI-data fra Synthesia. Vi valgte å bruke det ordinære MIDI-grensesnittet som innebærer en  enkel MIDI-krets ovenfor en USB-løsning, som ville vært mer kompleks i form av programkode. 
+
+MIDI-kretsen som mottar signalet fra PCen består i hovedsak av en optokobler\footnote{Optokobler: Overfører et elektrisk signal via lysbølger. Dette opphever elektrisk kontakt gjennom metall, slik at uønsket høye spenninger eller strømmersløyfer ikke overføres.} og en plugg for MIDI-kabel. Kretsen og komponentutvalget er basert på løsninger tilgjengelig på nettet\cite{midi_avr}\cite{hackaday}. Kretsen trenger en egen forsyningsspenning og kan kobles til en UART-enhet. Kretsen er vist i figur \ref{fig:MIDI-krets}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[trim = 0cm 7cm 0cm 7cm, width=13cm]{MIDI-krets}
+	\caption{MIDI-kretsen}
+	\label{fig:MIDI-krets}
+\end{figure}
+
+Strømforsyningen og mikrokontrolleren sitter på et eget utviklerkort\footnote{Utviklerkort: inneholder ferdigmontert mikrokontroller, strømforsyning, tilkoblingspunkter etc.} fra selskapet \emph{Atmel}. Det får strøm via USB. Mikrokontrolleren er av typen \emph{AVR XMEGA128B1}. Mikrokontrolleren er valgt fordi vi var i besittelse av et utviklerkort, og hadde fagkompetansen. I tillegg har den innebygget maskinvare for UART-protokollen. Med tanke på hvor mye strømtrekk mikrokontrolleren tåler ble den satt til å jorde LEDene, ikke forsyne dem med strøm. Utviklerkortet er vist i figur \ref{fig:utviklerkort}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=10cm]{Utviklerkort}
+	\caption{Utviklerkortet}
+	\label{fig:utviklerkort}
+\end{figure}
+
+Programkoden i mikrokontrolleren er satt opp sekvensielt. Koden baserer seg på rammeverket ASF, fra Atmel. Dette er den enkleste og kjappeste løsningen som krever minst koding. Siden prosessoren har en relativt liten oppgave med å lese av MIDI-data og tenne LEDene så vi ikke behovet for en avansert kodestruktur. For å lese av den serielle datastrømmen er UART-enheten på mikrokontrolleren satt opp til å følge MIDI-spesifikasjonene. En forenklet versjon av kildekoden er lagt ved rapporten.
+
+Et problem vi støtte på var at noen fabrikanter sender ulike MIDI-kommandoer for 'note av'. Derfor måtte mikrokontrolleren støtte to ulike metoder. En metode bruker den faktiske kommandoen for 'note av', den andre bruker 'note på', men med 'slaghastighet null', altså null lydstyrke. Dette forårsaker en del ekstra koding.
+
+
 \section{Arbeidsmetoder}
 hvordan har vi jobbet?
