@@ -31,13 +31,23 @@ En annen funksjon som ble lagt til var muligheten for å sende MIDI-signaler fra
 Ettersom Gamle Tangenter skal være et ferdig system som skal være overkommelig enkelt å bruke, valgte gruppen og låne en PC med touchskjerm så man skulle slippe å styre programmet med tastatur og mus. Det for å gjøre det enklere og fordi MIDI-keyboardet burde være det eneste input-elementet som burde være synlig og ta opp plass, ettersom hele konseptet baserer seg på input fra denne enheten og dermed burde være hovedfokus. 
 
 \subsection{MIDI-keyboard}
-
+Et MIDI-keyboard ser ut som et pianokeyboard, og fungerer stort sett på samme måte, men kan kobles til en PC via USB eller MIDI. MIDI-keyboardet er inputenheten som sender hvilke tangenter som blir trykket ned, som MIDI-signaler, for så og tolkes av Gamle Tangenter om hvorvidt den nedtrykte tangenten var riktig. 
 
 \subsection{Lysdioder montert på MIDI-keyboard}
+For å gjøre hele konseptet mer brukervennlig valgte gruppen og montere lysdioder til hver tangent, slik at disse skulle lyse på den tangenten som skulle spilles til enhver tid. Dette fungerer slik at Gamle Tangenter sender MIDI-signaler ut med hvilke noter som skal spilles av via USB. Et MIDI-interface mellom PC og kretskortet som styrer lysdiodene, gjør om USB-strømmen til en MIDI-strøm. Videre tolkes MIDI-strømmen av et kretskort programmert av gruppen, og de respektive lysdiodene tennes ut i fra hvilket MIDI-signal som er sendt.
 
 \subsection{Musikkfiler type MIDI}
+Fra musikkarkivet til Gunnerus Bibliotek ble gamle noter digitalisert om til MIDI-filer ved hjelp av programvaren Sibelius\cite{sibelius}. Disse notene ble skrevet inn manuelt av gruppen, slik at de kunne bli tolket og brukt i Gamle Tangenter. 
 
 \section{Behov}
-trengs produktet vårt ...
+Produktet vi har stilt, er en fungerende prototype som helt klart har et potensiale til å formidle gammel musikkarv på en ny måte. Sannsynligheten, sett fra gruppens ståsted, at ungdomsskoleelever selv tar initiativ for å bruke noter og musikk komponert for flere hundre år siden, er relativt liten, slik det er nå. Behovet for å finne en ny arena med et nytt medium for å formidle denne musikkarven, er essensiell. Gruppens synspunkt er at hvis denne type musikk blir lettere tilgjengelig og samtidig interaktiv og spennende, tatt til et nytt medium, vil sjansene være mye større for at musikken får et nytt bruksområde.
+
 \section{Hvordan løses problemet}
-hvordan løses problemstillinga
+"Hvordan få ungdomsskoleelever interessert i Trondheims gamle musikktradisjon?" var problemstillingen vi prøvde å løse med dette produktet. 
+
+Ettersom målgruppen for dette prosjektet primært var ungdomsskoleelever, var det for gruppen essensielt og møte dem på deres arena med et medium de kunne relatere til. Fordi dette skulle være et produkt som skulle være tilgjengelig på Gunnerus Bibliotek, måtte det være lett å bruke og lett å komme i gang med, så ikke oppmerksomheten og viljen ble borte i å prøve å få produktet i gang. Ved at man har få mulige feiltrinn og et begrenset utvalg av muligheter, vil hovedfokuset være på å spille sangen med MIDI-keyboardet. 
+
+Med dette produktet er muligheten stor for å nå ut til ungdomsskoleelever som er på besøk hos Gunnerus Bibliotek, med en type musikk som mest sannsynlig ikke er av så stor interesse i utgangspunktet. Når de har et underholdningsmedium tilsynelatende ganske likt som "Guitar Hero"\cite{guitarhero}, noe som for de aller fleste ungdommer er kjent, vil overgangen til Gamle Tangenter være liten, og konseptet mest sannsynlig være kjent. Det vil da hjelpe til å holde hovedfokus på sangen de skal spille og ikke på å skjønne hvordan det hele fungerer. 
+
+Et annet virkemiddel for å formidle musikkhistorien som var planlagt, men som på grunn av tidsmangel ikke ble implementert, var at man kunne ha bilder og informasjon om for eksempel komponist, sang, og musikksjanger, til hver enkelt sang på forskjellige steder i programmet. Da vil man få formidlet en hel del mer om denne musikkarven. 
+
